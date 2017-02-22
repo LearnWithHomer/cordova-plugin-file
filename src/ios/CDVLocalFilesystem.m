@@ -75,7 +75,9 @@
     }
     [dirEntry setObject:[NSNumber numberWithBool:!isDir]  forKey:@"isFile"];
     [dirEntry setObject:[NSNumber numberWithBool:isDir]  forKey:@"isDirectory"];
-    [dirEntry setObject:fullPath forKey:@"fullPath"];
+    if (fullPath) {
+        [dirEntry setObject:fullPath forKey:@"fullPath"];
+    }
     [dirEntry setObject:lastPart forKey:@"name"];
     [dirEntry setObject:self.name forKey: @"filesystemName"];
 

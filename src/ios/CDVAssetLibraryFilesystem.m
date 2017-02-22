@@ -194,7 +194,7 @@ NSString* const kCDVAssetsLibraryScheme = @"assets-library";
         if (asset) {
             // We have the asset!  Get the data and send it off.
             ALAssetRepresentation* assetRepresentation = [asset defaultRepresentation];
-            NSUInteger size = (end > start) ? (end - start) : [assetRepresentation size];
+            NSUInteger size = (NSUInteger)((end > start) ? (end - start) : [assetRepresentation size]);
             Byte* buffer = (Byte*)malloc(size);
             NSUInteger bufferSize = [assetRepresentation getBytes:buffer fromOffset:start length:size error:nil];
             NSData* data = [NSData dataWithBytesNoCopy:buffer length:bufferSize freeWhenDone:YES];
